@@ -55,7 +55,7 @@
   },
   "scripts": {
     "build": "npx tsc && cp types.d.ts dist/types.d.ts && genversion --es6 src/utils/version.js && rollup -c",
-    "prepare": "genversion --es6 src/utils/version.js && rollup -c",
+    "prepare": "npx tsc && cp types.d.ts dist/types.d.ts && genversion --es6 src/utils/version.js && rollup -c",
     "build:watch": "genversion --es6 src/utils/version.js && rollup -c -w",
     "test": "jest",
     "release": "release-it",
