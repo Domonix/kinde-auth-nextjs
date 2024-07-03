@@ -278,4 +278,5 @@ export type KindeClientConfig = {
   logoutRedirectURL: any;
   frameworkVersion: string;
   framework: string;
+  loginCallback?: () => void;
 };
