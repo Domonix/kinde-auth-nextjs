@@ -6,9 +6,6 @@ import RouterClient from '../routerClients/RouterClient';
  * @param {RouterClient} routerClient
  */
 export const callback = async (routerClient) => {
-  if (routerClient.clientConfig.loginCallback)
-    routerClient.clientConfig.loginCallback(routerClient);
-
   const postLoginRedirectURLFromMemory =
     await routerClient.sessionManager.getSessionItem('post_login_redirect_url');
 
@@ -26,6 +23,12 @@ export const callback = async (routerClient) => {
     );
   } catch (error) {
     return routerClient.json({error: error.message}, {status: 500});
+  }
+
+  if (routerClient.clientConfig.loginCallback) {
+    const callbackResponse =
+      await routerClient.clientConfig.loginCallback(routerClient);
+    if (callbackResponse) return callbackResponse;
   }
 
   if (postLoginRedirectURL) return routerClient.redirect(postLoginRedirectURL);

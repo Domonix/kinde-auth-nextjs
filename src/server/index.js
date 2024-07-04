@@ -9,3 +9,4 @@ export {
 export {createKindeManagementAPIClient} from '../api-client';
 export {default as handleAuth} from '../handlers/auth';
 export {protectPage, protectApi} from '../handlers/protect';
+export {default as RouterClient} from '../routerClients/RouterClient';
