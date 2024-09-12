@@ -8,6 +8,7 @@ import {
   SessionManager,
   UserType
 } from '@kinde-oss/kinde-typescript-sdk';
+import {RouterClient} from './src/server';
 
 export type KindeAccessToken = {
   aud: string[];
@@ -278,5 +279,5 @@ export type KindeClientConfig = {
   logoutRedirectURL: any;
   frameworkVersion: string;
   framework: string;
-  loginCallback?: () => void;
+  loginCallback?: (routeClient?: RouterClient, error?: any) => void;
 };

@@ -11,7 +11,7 @@ export default class AppRouterClient extends RouterClient {
    *
    * @param {NextRequest} req
    * @param {*} res
-   * @param {{onError?: () => void; config: {audience?: string | string[], clientId?: string, clientSecret?: string, issuerURL?: string, siteUrl?: string, postLoginRedirectUrl?: string, postLogoutRedirectUrl?: string, loginCallback?: (client:RouterClient)=>void}}} options
+   * @param {{onError?: () => void; config: {audience?: string | string[], clientId?: string, clientSecret?: string, issuerURL?: string, siteUrl?: string, postLoginRedirectUrl?: string, postLogoutRedirectUrl?: string, loginCallback?: (client:RouterClient, error:any)=>void}}} options
    */
   constructor(req, res, options) {
     super();
