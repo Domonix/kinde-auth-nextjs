@@ -36,7 +36,7 @@ const getRoute = (endpoint) => {
 /**
  * @param {object} [request]
  * @param {string} [endpoint]
- * @param {{onError?: () => void; config: {audience?: string | string[], clientId?: string, clientSecret?: string, issuerURL?: string, siteUrl?: string, postLoginRedirectUrl?: string, postLogoutRedirectUrl?: string, loginCallback?: (client:RouterClient, error:any)=>void}}} [options]
+ * @param {{onError?: () => void; config: {audience?: string | string[], clientId?: string, clientSecret?: string, issuerURL?: string, siteUrl?: string, postLoginRedirectUrl?: string, postLogoutRedirectUrl?: string, loginCallback?: (client:RouterClient, error:any, redirectUrl: string)=>void}}} [options]
  * @returns {(req, res) => any}
  */
 export default (request, endpoint, options) => {
