@@ -22,12 +22,20 @@ export const callback = async (routerClient) => {
       routerClient.getUrl()
     );
   } catch (error) {
+    const callbackResponse = await routerClient.clientConfig.loginCallback(
+      routerClient,
+      error
+    );
+    if (callbackResponse) return callbackResponse;
+
     return routerClient.json({error: error.message}, {status: 500});
   }
 
   if (routerClient.clientConfig.loginCallback) {
-    const callbackResponse =
-      await routerClient.clientConfig.loginCallback(routerClient);
+    const callbackResponse = await routerClient.clientConfig.loginCallback(
+      routerClient,
+      null
+    );
     if (callbackResponse) return callbackResponse;
   }
 
